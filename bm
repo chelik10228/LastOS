@@ -1,0 +1,12 @@
+#!/usr/bin/python
+
+import os;
+
+print("Welcome to \033[32mLasto\033[0m \033[34mBoot Manager\033[0m");
+print("Enter 1 for run LastOS");
+selecter = input("Enter 0 for exit: ");
+
+if selecter == "1":
+  os.system("./os");
+elif selecter == "0":
+  exit();
