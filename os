@@ -8,11 +8,13 @@ while (True):
 	cmd_line = input("# ").split();
 	if cmd_line[0] == "help":
                 print("Using:");
-                print("lasfetch - show info of the system");
-                print("echo - output text on display");
-                print("cls - clear screen");
-                print("help - show all commands");
-                print("exit - shutdown os");
+                print("   lasfetch - show info of the system");
+                print("   echo - output text on display");
+                print("   cls - clear screen");
+                print("   date - show date");
+                print("   time - show time");
+                print("   help - show all commands");
+                print("   exit - shutdown os");
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
@@ -24,5 +26,9 @@ while (True):
                 print("\033[36m/||\033[0m | Release Date: 2025-04-02");
 	elif cmd_line[0] == "cls":
                 os.system("clear");
+	elif cmd_line[0] == "date":
+		os.system("date +%D");
+	elif cmd_line[0] == "time":
+		os.system("date +%T");
 	else:
 		print("Bad Command.");
