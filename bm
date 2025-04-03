@@ -2,11 +2,18 @@
 
 import os;
 
-print("Welcome to \033[32mLasto\033[0m \033[34mBoot Manager\033[0m");
-print("Enter 1 for run LastOS");
-selecter = input("Enter 0 for exit: ");
+print("Welcome to \033[32mLasto\033[0m \033[34mBoot Manager\033[0m 0.1");
+print("Type 'help' for how to use manager.");
+while (True):
+	selecter = input("boot_mgr> ");
 
-if selecter == "1":
-  os.system("./os");
-elif selecter == "0":
-  exit();
+	if selecter == "help":
+  		print("boot 0 - start lastos");
+  		print("exit - shutdown boot manager");
+	elif selecter == "boot 0":
+  		os.system("./os");
+	elif selecter == "exit":
+                exit();
+	else:
+  		print("Bad Command.");
+  
