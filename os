@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import os;
-MEMORY_SIZE = 4096, "KiB"
 
 os.system("clear");
 print("Welcome to \033[32mLastOS\033[0m");
