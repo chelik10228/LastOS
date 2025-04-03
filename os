@@ -30,7 +30,5 @@ while (True):
 		os.system("date +%D");
 	elif cmd_line[0] == "time":
 		os.system("date +%T");
-	elif cmd_line[0] == "hi":
-                print("hai world :3");
 	else:
 		print("Bad Command.");
