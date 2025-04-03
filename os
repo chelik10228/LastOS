@@ -3,7 +3,7 @@
 import os;
 
 os.system("clear");
-print("Welcome to \033[32mLastOS!\033[0m");
+print("Welcome to \033[32mLastOS\033[0m");
 while (True):
 	cmd_line = input("# ").split();
 	if cmd_line[0] == "help":
@@ -30,5 +30,7 @@ while (True):
 		os.system("date +%D");
 	elif cmd_line[0] == "time":
 		os.system("date +%T");
+	elif cmd_line[0] == "hi":
+                print("hai world :3");
 	else:
 		print("Bad Command.");
