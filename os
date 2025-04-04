@@ -21,6 +21,7 @@ while (True):
                 print("   cls - clear screen");
                 print("   date - show date");
                 print("   time - show time");
+                print("   jokegame - start joke game");
                 print("   help - show all commands");
                 print("   exit - shutdown os");
 	elif cmd_line[0] == "echo":
@@ -38,5 +39,8 @@ while (True):
 		os.system("date +%D");
 	elif cmd_line[0] == "time":
 		os.system("date +%T");
+	elif cmd_line[0] == "jokegame":
+                sosal = input("Введи да: ");
+                print("\033[A Сосал?: ", sosal);
 	else:
 		print("Bad Command.");
