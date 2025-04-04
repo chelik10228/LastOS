@@ -29,7 +29,7 @@ while (True):
 	elif cmd_line[0] == "exit":
 		exit();
 	elif cmd_line[0] == "lasfetch":
-                print("\033[36m _\033[0m  | OS Name: LastOS 0.1");
+                print("\033[36m _\033[0m  | OS Name: LastOS 0.2");
                 print("\033[36m('=\033[0m | Lang: Python");
                 print("\033[36m/_)\033[0m | Developer: FedouM & Xi816");
                 print("\033[36m/||\033[0m | Release Date: 2025-04-02");
