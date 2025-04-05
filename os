@@ -5,6 +5,7 @@ import time;
 import tkinter as tk;
 
 root = tk.Tk();
+root.title("Lasto Display");
 root.minsize(640, 480);
 root.geometry("640x480");
 root.configure(background="blue");
