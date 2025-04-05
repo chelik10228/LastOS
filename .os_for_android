@@ -12,7 +12,7 @@ import time;
 # root.configure(background="blue");
 
 os.system("clear");
-print("Welcome to \033[32mLastOS\033[0m for \033[32mAndroid\033[0m");
+print("Welcome to \033[32mLastOS\033[0m");
 while (True):
 	cmd_line = input("# ").split();
 	if cmd_line[0] == "help":
