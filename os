@@ -2,6 +2,12 @@
 
 import os;
 import time;
+import tkinter as tk;
+
+root = tk.Tk();
+root.minsize(640, 480);
+root.geometry("640x480");
+root.configure(background="blue");
 
 os.system("clear");
 print("Welcome to \033[32mLastOS\033[0m");

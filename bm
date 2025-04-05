@@ -12,12 +12,9 @@ while (True):
                 exit();
 	elif selecter == "boot 0":
                 os.system("./os");
-	elif selecter == "boot 1":
-                os.system("./.os_for_android");
 	elif selecter == "help":
                 print("  help - show all commands");
                 print("  boot 0 - start lastos");
-                print("  boot 1 - start lastos for termux (android)");
                 print("  exit - exit from the boot manager");
 	else:
   		print("Bad Command.");
