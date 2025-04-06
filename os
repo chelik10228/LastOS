@@ -14,7 +14,7 @@ os.system("clear");
 welcome = "Welcome to \033[32mLastOS\033[0m"
 print(welcome);
 while (True):
-	cmd_line = input("# ").split();
+	cmd_line = input("LASTOS -> ").split();
 	if cmd_line[0] == "help":
                 print("Using:");
                 print("   lasfetch - show info of the system");
