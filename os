@@ -76,7 +76,7 @@ while (True):
 	elif cmd_line[0] == "kernelpanic":
 		print("\033[H\033[2J", end="\r");
 		print("         /");
-		print(" .      /");
+		print(" .      /  There is a problem with your system");
 		print("       /  Error code: 0x000001");
 		print("      /  Decode error: KernelPanic Command Test");
 		print("     /");
