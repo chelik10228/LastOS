@@ -13,7 +13,7 @@ print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
 print(welcome);
 while (True):
-	cmd_line = input("LASTOS -> ").split();
+	cmd_line = input(": ").split();
 	if cmd_line[0] == "help":
                 print("Using:");
                 print("   lasfetch - show info of the system");
