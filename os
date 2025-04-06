@@ -54,7 +54,7 @@ while (True):
                 def devide(a, b):
                         return a / b;
 
-                choice = input("Opearation (+,-,*,/): ");
+                choice = input("Operation (+,-,*,/): ");
 
                 num1 = float(input("Enter first number: "));
                 num2 = float(input("Enter second number: "));
