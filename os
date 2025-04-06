@@ -8,7 +8,7 @@ root = tk.Tk();
 root.title("Lasto Display");
 root.minsize(640, 480);
 root.geometry("640x480");
-root.configure(background="blue");
+root.configure(background="black");
 
 os.system("clear");
 welcome = "Welcome to \033[32mLastOS\033[0m"
