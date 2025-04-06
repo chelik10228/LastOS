@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import os;
 import time;
 import tkinter as tk;
 
@@ -10,7 +9,7 @@ root.minsize(640, 480);
 root.geometry("640x480");
 root.configure(background="black");
 
-os.system("clear");
+print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
 print(welcome);
 while (True):
@@ -37,7 +36,7 @@ while (True):
                 print("\033[36m/_)\033[0m | Developer: FedouM");
                 print("\033[36m/||\033[0m | Release Date: 2025-04-04");
 	elif cmd_line[0] == "cls":
-                os.system("clear");
+                print("\033[H\033[2J", end="\r");
 	elif cmd_line[0] == "date":
 		os.system("date +%D");
 	elif cmd_line[0] == "time":
@@ -75,35 +74,35 @@ while (True):
                 else:
                         print("Incorrent input");
 	elif cmd_line[0] == "kernelpanic":
-                os.system("clear");
-                print("         /");
-                print(" .      /");
-                print("       /  Error code: 0x000001");
-                print("      /  Decode error: KernelPanic Command Test");
-                print("     /");
-                print("     \\");
-                print("      \\");
-                print("       \\");
-                print(" .      \\");
-                print("         \\");
-                print("Solving error... 1%", end="\r");
-                time.sleep(1);
-                print("Solving error... 28%", end="\r");
-                time.sleep(1);
-                print("Solving error... 36%", end="\r");
-                time.sleep(1);
-                print("Solving error... 47%", end="\r");
-                time.sleep(1);
-                print("Solving error... 59%", end="\r");
-                time.sleep(1);
-                print("Solving error... 68%", end="\r");
-                time.sleep(1);
-                print("Solving error... 98%", end="\r");
-                time.sleep(1);
-                print("Solving error... 100%", end="\r");
-                time.sleep(2);
-                print("Rebooting to system...");
-                os.system("clear");
-                print(welcome);
+		print("\033[H\033[2J", end="\r");
+		print("         /");
+		print(" .      /");
+		print("       /  Error code: 0x000001");
+		print("      /  Decode error: KernelPanic Command Test");
+		print("     /");
+		print("     \\");
+		print("      \\");
+		print("       \\");
+		print(" .      \\");
+		print("         \\");
+		print("Solving error... 1%", end="\r");
+		time.sleep(1);
+		print("Solving error... 28%", end="\r");
+		time.sleep(1);
+		print("Solving error... 36%", end="\r");
+		time.sleep(1);
+		print("Solving error... 47%", end="\r");
+		time.sleep(1);
+		print("Solving error... 59%", end="\r");
+		time.sleep(1);
+		print("Solving error... 68%", end="\r");
+		time.sleep(1);
+		print("Solving error... 98%", end="\r");
+		time.sleep(1);
+		print("Solving error... 100%", end="\r");
+		time.sleep(2);
+		print("Rebooting to system...");
+		print("\033[H\033[2J", end="\r");
+		print(welcome);
 	else:
 		print("Bad Command.");

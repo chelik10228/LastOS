@@ -2,7 +2,7 @@
 
 import os;
 
-os.system("clear");
+print("\033[H\033[2J", end="\r");
 print("Welcome to \033[32mLasto\033[0m \033[34mBoot Manager\033[0m 0.1");
 print("Type 'help' for how to use manager.");
 while (True):
