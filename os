@@ -22,6 +22,7 @@ while (True):
                 print("   date - show date");
                 print("   time - show time");
                 print("   jokegame - start joke game");
+                print("   calc - open calculator");
                 print("   help - show all commands");
                 print("   exit - shutdown os");
 	elif cmd_line[0] == "echo":
@@ -42,5 +43,34 @@ while (True):
 	elif cmd_line[0] == "jokegame":
                 sosal = input("Введи да: ");
                 print("\033[A Сосал?: ", sosal);
+	elif cmd_line[0] == "calc":
+                def add(a, b):
+                        return a + b;
+                def subtract(a, b):
+                        return a - b;
+                def multiply(a, b):
+                        return a * b;
+                def devide(a, b):
+                        return a / b;
+
+                choice = input("Opearation (+,-,*,/): ");
+
+                num1 = float(input("Enter first number: "));
+                num2 = float(input("Enter second number: "));
+
+                if choice == "+":
+                        result = add(num1, num2)
+                        print("Result: ", result);
+                elif choice == "-":
+                        result = subtract(num1, num2);
+                        print("Result: ", result);
+                elif choice == "*":
+                        result = multiply(num1, num2);
+                        print("Result: ", result);
+                elif choice == "/":
+                        result = devide(num1, num2);
+                        print("Result: ", result);
+                else:
+                        print("Incorrent input");
 	else:
 		print("Bad Command.");
