@@ -72,17 +72,21 @@ while (True):
                 else:
                         print("Incorrent input");
 	elif cmd_line[0] == "kernelpanic":
+		def print_chars(msg, t):
+			for i in msg:
+				print(end=i, flush=True);
+				time.sleep(t);
 		print("\033[H\033[2J", end="\r");
-		print("         /");
-		print(" .      /  There is a problem with your system");
-		print("       /  Error code: 0x000001");
-		print("      /  Decode error: KernelPanic Command Test");
-		print("     /");
-		print("     \\");
-		print("      \\");
-		print("       \\");
-		print(" .      \\");
-		print("         \\");
+		print_chars("         /\n", 0.01);
+		print_chars(" .      /  There is a problem with your system\n", 0.01);
+		print_chars("       /  Error code: 0x000001\n", 0.01);
+		print_chars("      /  Decode error: KernelPanic Command Test\n", 0.01);
+		print_chars("     /\n", 0.01);
+		print_chars("     \\\n", 0.01);
+		print_chars("      \\\n", 0.01);
+		print_chars("       \\\n", 0.01);
+		print_chars(" .      \\\n", 0.01);
+		print_chars("         \\\n", 0.01);
 		print("Solving error... 1%", end="\r");
 		time.sleep(1);
 		print("Solving error... 28%", end="\r");
