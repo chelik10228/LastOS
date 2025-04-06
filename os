@@ -104,5 +104,23 @@ while (True):
 		print("Rebooting to system...");
 		print("\033[H\033[2J", end="\r");
 		print(welcome);
+	elif cmd_line[0] == "linux":
+                print("Это пасхалка!");
+                print("         _nnnn_");
+                print("        dGGGGMMb");
+                print("       @p~qp~~qMb");
+                print("       M|@||@) M|");
+                print("       @,----.JM|");
+                print("      JS^\__/  qKL");
+                print("     dZP        qKRb");
+                print("    dZP          qKKb");
+                print("   fZP            SMMb");
+                print("   HZM            MMMM");
+                print("   FqM            MMMM");
+                print(" __| \".        |\dS\"qML");
+                print(" |    `.       | `' \Zq");
+                print("_)      \.___.,|     .'");
+                print("\____   )MMMMMP|   .'");
+                print("     `-'       `--'");
 	else:
 		print("Bad Command.");
