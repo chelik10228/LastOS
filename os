@@ -1,13 +1,11 @@
 #!/usr/bin/python
 
 import time;
-import tkinter as tk;
+import pygame;
 
-root = tk.Tk();
-root.title("Lasto Display");
-root.minsize(640, 480);
-root.geometry("640x480");
-root.configure(background="black");
+screen = pygame.display.set_mode((640, 480));
+pygame.display.set_caption("Lasto Display");
+pygame.display.flip();
 
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
