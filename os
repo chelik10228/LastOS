@@ -11,7 +11,8 @@ root.geometry("640x480");
 root.configure(background="blue");
 
 os.system("clear");
-print("Welcome to \033[32mLastOS\033[0m");
+welcome = "Welcome to \033[32mLastOS\033[0m"
+print(welcome);
 while (True):
 	cmd_line = input("# ").split();
 	if cmd_line[0] == "help":
@@ -23,6 +24,7 @@ while (True):
                 print("   time - show time");
                 print("   jokegame - start joke game");
                 print("   calc - open calculator");
+                print("   kernelpanic - lasto kernelpanic");
                 print("   help - show all commands");
                 print("   exit - shutdown os");
 	elif cmd_line[0] == "echo":
@@ -72,5 +74,36 @@ while (True):
                         print("Result: ", result);
                 else:
                         print("Incorrent input");
+	elif cmd_line[0] == "kernelpanic":
+                os.system("clear");
+                print("         /");
+                print(" .      /");
+                print("       /  Error code: 0x000001");
+                print("      /  Decode error: KernelPanic Command Test");
+                print("     /");
+                print("     \\");
+                print("      \\");
+                print("       \\");
+                print(" .      \\");
+                print("         \\");
+                print("Solving error... 1%", end="\r");
+                time.sleep(1);
+                print("Solving error... 28%", end="\r");
+                time.sleep(1);
+                print("Solving error... 36%", end="\r");
+                time.sleep(1);
+                print("Solving error... 47%", end="\r");
+                time.sleep(1);
+                print("Solving error... 59%", end="\r");
+                time.sleep(1);
+                print("Solving error... 68%", end="\r");
+                time.sleep(1);
+                print("Solving error... 98%", end="\r");
+                time.sleep(1);
+                print("Solving error... 100%", end="\r");
+                time.sleep(2);
+                print("Rebooting to system...");
+                os.system("clear");
+                print(welcome);
 	else:
 		print("Bad Command.");
