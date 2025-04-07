@@ -17,8 +17,7 @@ while (True):
                 print("   lasfetch - show info of the system");
                 print("   echo - output text on display");
                 print("   cls - clear screen");
-                print("   date - show date");
-                print("   time - show time");
+                print("   dateandtime - show date and time");
                 print("   jokegame - start joke game");
                 print("   calc - open calculator");
                 print("   kernelpanic - lasto kernelpanic");
@@ -35,10 +34,8 @@ while (True):
                 print("\033[36m/||\033[0m | Release Date: 2025-04-06");
 	elif cmd_line[0] == "cls":
                 print("\033[H\033[2J", end="\r");
-	elif cmd_line[0] == "date":
-		os.system("date +%D");
-	elif cmd_line[0] == "time":
-		os.system("date +%T");
+	elif cmd_line[0] == "dateandtime":
+		print(time.ctime());
 	elif cmd_line[0] == "jokegame":
                 sosal = input("Введи да: ");
                 print("\033[A Сосал?: ", sosal);
@@ -72,19 +69,15 @@ while (True):
                 else:
                         print("Incorrent input");
 	elif cmd_line[0] == "kernelpanic":
-		def print_chars(msg, t):
-			for i in msg:
-				print(end=i, flush=True);
-				time.sleep(t);
 		print("\033[H\033[2J", end="\r");
-		print_chars("------------------\n", 0.01);
-		print_chars("\033[31mKERNEL PANIC\033[0m\n", 0.01);
-		print_chars("------------------\n", 0.01);
-		print_chars("\033[32mSystem crash\033[0m\n", 0.01);
-		print_chars("Log: \n", 0.01);
-		print_chars(": kernelpanic\n", 0.01);
-		print_chars("call 0x000001\n", 0.01);
-		print_chars("KERNELPANIC\n", 0.01);
+		print("------------------");
+		print("\033[31mKERNEL PANIC\033[0m");
+		print("------------------");
+		print("\033[32mSystem crash\033[0m");
+		print("Log: ");
+		print(": kernelpanic");
+		print("call 0x000001");
+		print("KERNELPANIC");
 		time.sleep(2);
 		print("\033[H\033[2J", end="\r");
 		print(welcome);
