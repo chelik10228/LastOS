@@ -13,7 +13,7 @@ print(welcome);
 while (True):
 	cmd_line = input(": ").split();
 	if cmd_line[0] == "help":
-                print("Using:");
+                print("Lasto Command Help 1/1 page:");
                 print("   lasfetch - show info of the system");
                 print("   echo - output text on display");
                 print("   cls - clear screen");
