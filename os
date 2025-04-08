@@ -7,31 +7,26 @@ screen = pygame.display.set_mode((640, 480));
 pygame.display.set_caption("Lasto Display");
 pygame.display.flip();
 
+running = True;
+
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
 print(welcome);
 while (True):
 	cmd_line = input(": ").split();
 	if cmd_line[0] == "help":
-                print("Lasto Command Help 1/1 page:");
-                print("   lasfetch - show info of the system");
-                print("   echo - output text on display");
-                print("   cls - clear screen");
-                print("   dateandtime - show date and time");
-                print("   jokegame - start joke game");
-                print("   calc - open calculator");
-                print("   kernelpanic - lasto kernelpanic");
-                print("   help - show all commands");
-                print("   exit - shutdown os");
+		f = open("commands/1.help", "r");
+		content = f.read();
+		print(content);
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
 		exit();
 	elif cmd_line[0] == "lasfetch":
-                print("\033[36m _\033[0m  | OS Name: LastOS 0.3");
-                print("\033[36m('=\033[0m | Lang: Python");
-                print("\033[36m/_)\033[0m | Developer: FedouM");
-                print("\033[36m/||\033[0m | Release Date: 2025-04-06");
+		f = open("commands/lasfetch", "r")
+		content = f.read();
+		f.close();
+		print(content);
 	elif cmd_line[0] == "cls":
                 print("\033[H\033[2J", end="\r");
 	elif cmd_line[0] == "dateandtime":
@@ -100,4 +95,5 @@ while (True):
                 print("\____   )MMMMMP|   .'");
                 print("     `-'       `--'");
 	else:
-		print("Bad Command.");
+		while (running):
+			time.sleep(1);
