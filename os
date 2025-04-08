@@ -63,19 +63,6 @@ while (True):
                         print("Result: ", result);
                 else:
                         print("Incorrent input");
-	elif cmd_line[0] == "kernelpanic":
-		print("\033[H\033[2J", end="\r");
-		print("------------------");
-		print("\033[31mKERNEL PANIC\033[0m");
-		print("------------------");
-		print("\033[32mSystem crash\033[0m");
-		print("Log: ");
-		print(": kernelpanic");
-		print("call 0x000001");
-		print("KERNELPANIC");
-		time.sleep(2);
-		print("\033[H\033[2J", end="\r");
-		print(welcome);
 	elif cmd_line[0] == "linux":
                 print("Это пасхалка!");
                 print("         _nnnn_");
