@@ -81,6 +81,11 @@ while (True):
                 print("_)      \.___.,|     .'");
                 print("\____   )MMMMMP|   .'");
                 print("     `-'       `--'");
+	elif cmd_line[0] == "hexconverter":
+		print("Hex Converter 0.1");
+		string = input("Input Number: ");
+		convert = hex(int(string));
+		print(convert);
 	else:
 		while (running):
 			time.sleep(1);
