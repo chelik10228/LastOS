@@ -7,8 +7,6 @@ screen = pygame.display.set_mode((640, 480));
 pygame.display.set_caption("Lasto Display");
 pygame.display.flip();
 
-running = True;
-
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
 print(welcome);
@@ -87,5 +85,4 @@ while (True):
 		convert = hex(int(string));
 		print(convert);
 	else:
-		while (running):
-			time.sleep(1);
+		print("Bad Command.");
