@@ -1,10 +1,12 @@
-LastOS Command Help 1/1 page:
-	lasfetch - show info of the system
-	echo - output text on screen
-	cls - clear screen
-	dateandtime - show date and time
-	jokegame - start joke game
-	calc - open calculator
-	hexconverter - convert any number to hex
-	help - show all commands
-	exit - shutdown os
++--------------------------------------------------+
+|LastOS Command Help 1/1 page:                     |
+|	lasfetch - show info of the system         |
+|	echo - output text on screen               |
+|	cls - clear screen                         |
+|	dateandtime - show date and time           |
+|	jokegame - start joke game	           |
+|	calc - open calculator                     |
+|	hexcnv - convert any number to hex         |
+|	help - show all commands                   |
+|	exit - shutdown os                         |
++--------------------------------------------------+
