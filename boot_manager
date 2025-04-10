@@ -4,4 +4,4 @@ import os;
 
 while (True):
 	boot = input("boot ");
-        os.system(f"./{boot}");
+	os.system(f"./{boot}");
