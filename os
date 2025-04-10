@@ -97,5 +97,11 @@ while (True):
 			hex_convert = input("Input: ");
 			convert = int(hex_convert, 16);
 			print(convert);
+	elif cmd_line[0] == "hello":
+		def print_chars(msg, t):
+			for i in msg:
+				print(end=i, flush=True);
+				time.sleep(t);
+		print_chars("Hello World!\n", 0.1);
 	else:
 		print("Bad Command.");
