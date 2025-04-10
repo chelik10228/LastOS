@@ -79,10 +79,23 @@ while (True):
                 print("_)      \.___.,|     .'");
                 print("\____   )MMMMMP|   .'");
                 print("     `-'       `--'");
-	elif cmd_line[0] == "hexconverter":
-		print("Hex Converter 0.1");
-		string = input("Input Number: ");
-		convert = hex(int(string));
-		print(convert);
+	elif cmd_line[0] == "hexcnv":
+		print("Hex Converter 0.2");
+		print("Select the mode: ");
+		print("1 = Numbers to Hex");
+		print("2 = Hex to Numbers");
+		selectmode = input("Select mode: ");
+		if selectmode == "1":
+			print("Numbers to Hex");
+			print("Enter numbers for convert to Hex");
+			hex_convert = input("Input: ");
+			convert = hex(int(hex_convert));
+			print("Result: ", convert);
+		elif selectmode == "2":
+			print("Hex to Numbers");
+			print("Enter hex for convert to Numbers");
+			hex_convert = input("Input: ");
+			convert = int(hex_convert, 16);
+			print(convert);
 	else:
 		print("Bad Command.");
