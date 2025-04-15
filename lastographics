@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import pygame;
+
+background_colour = (0, 0, 255);
+screen = pygame.display.set_mode((640, 480));
+pygame.display.set_caption("Lasto Display");
+screen.fill(background_colour);
+pygame.display.flip();
+running = True;
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False;
