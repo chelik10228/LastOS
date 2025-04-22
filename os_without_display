@@ -1,11 +1,6 @@
 #!/usr/bin/python
 
 import time;
-# import pygame;
-
-# screen = pygame.display.set_mode((640, 480));
-# pygame.display.set_caption("Lasto Display");
-# pygame.display.flip();
 
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
@@ -13,7 +8,7 @@ print(welcome);
 while (True):
 	cmd_line = input("$ ").split();
 	if not cmd_line:
-		pass;
+                pass;
 	elif (cmd_line[0] == "help"):
 		f = open("commands/1.help", "r");
 		content = f.read();
@@ -100,7 +95,7 @@ while (True):
 			convert = int(hex_convert, 16);
 			print("Result:", convert);
 		else:
-			print("Incorrect Input");
+			print("Incorrent Input");
 	elif cmd_line[0] == "hello":
 		def print_chars(msg, t):
 			for i in msg:
@@ -127,5 +122,11 @@ while (True):
 			print("Result:", convert);
 		else:
 			print("Incorrect Input");
+	elif cmd_line[0] == "aboutlastre":
+		print("============================================================================================");
+		print("=    LastRE is a fork of LastOS - a pseudo-OS written on Python.                           =");
+		print("= LastRE contains new commands and fixes, and some of OG LastOS's programs were rewritten. =");
+		print("=                                        v0.1                                              =");
+		print("============================================================================================");
 	else:
 		print("Bad Command.");
