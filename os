@@ -36,7 +36,7 @@ while (True):
                         return a - b;
                 def multiply(a, b):
                         return a * b;
-                def devide(a, b):
+                def divide(a, b):
                         return a / b;
 
                 choice = input("Operation (+,-,*,/): ");
@@ -54,7 +54,7 @@ while (True):
                         result = multiply(num1, num2);
                         print("Result: ", result);
                 elif choice == "/":
-                        result = devide(num1, num2);
+                        result = divide(num1, num2);
                         print("Result: ", result);
                 else:
                         print("Incorrent input");
