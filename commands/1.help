@@ -4,7 +4,6 @@
 |	echo - output text on screen               |
 |	cls - clear screen                         |
 |	dateandtime - show date and time           |
-|	jokegame - start joke game	           |
 |	calc - open calculator                     |
 |	hexcnv - convert any number to hex         |
 |	octcnv - convert any number to octal       |

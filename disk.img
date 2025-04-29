@@ -26,9 +26,6 @@ while (True):
                 print("\033[H\033[2J", end="\r");
 	elif cmd_line[0] == "dateandtime":
 		print(time.ctime());
-	elif cmd_line[0] == "jokegame":
-                sosal = input("Введи да: ");
-                print("\033[A Сосал?: ", sosal);
 	elif cmd_line[0] == "calc":
                 def add(a, b):
                         return a + b;
