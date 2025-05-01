@@ -125,7 +125,7 @@ while (True):
 		print("= LastRE contains new commands and fixes, and some of OG LastOS's programs were rewritten. =");
 		print("=                                        v0.1                                              =");
 		print("============================================================================================");
-	elif cmd_line[0] == "kernelpanic":
+	elif cmd_line[0] == "syserr":
 		def print_chars(msg, t):
 			for i in msg:
 				print(end=i, flush=True);
@@ -133,16 +133,17 @@ while (True):
 		print("\033[H\033[2J");
 		time.sleep(2);
 		print_chars("-------------------\n", 0.01);
-		print_chars("\033[31mKERNEL PANIC\033[0m\n", 0.01);
+		print_chars("\033[31mSYSTEM ERROR\033[0m\n", 0.01);
 		print_chars("-------------------\n", 0.01);
 		print_chars("\033[32mSystem crash\033[0m\n", 0.01);
 		print_chars("Log: \n", 0.01);
-		print_chars("EXECUTE_AT_ROOT com kernelpanic\n", 0.01);
+		print_chars("EXECUTE_AT_ROOT com syserr\n", 0.01);
 		print_chars("call 0x0001\n", 0.01);
 		print_chars("call 0x0002\n", 0.01);
 		print_chars("EXECUTE_SYSTEM_REBOOT\n", 0.01);
 		print_chars("ERROR_OF_SYSTEM_REBOOT\n", 0.01);
-		print_chars("KERNELPANIC\n", 0.01);
+		print_chars("SYSERR\n", 0.01);
+		print_chars("Error code: 0x0001\n", 0.01);
 		time.sleep(2);
 	else:
 		print("Bad Command.");

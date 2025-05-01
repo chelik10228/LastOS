@@ -8,7 +8,7 @@
 |  hexcnv == convert any number to hex    |
 |  octcnv == convert any number to octal  |
 |  aboutlastre == lastre                  |
-|  kernelpanic == kernelpanic test        |
+|  syserr == system error test            |
 |  help == show all commands              |
 |  exit == shutdown os                    |
 +-----------------------------------------+
