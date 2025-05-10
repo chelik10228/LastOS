@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import time;
+import os;
 
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
@@ -10,18 +11,15 @@ while (True):
 	if not cmd_line:
                 pass;
 	elif (cmd_line[0] == "help"):
-		f = open("commands/1.help", "r");
-		content = f.read();
-		print(content);
+		os.system("cat commands/1.help | lolcat");
+		print();
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
 		exit();
 	elif cmd_line[0] == "lasfetch":
-		f = open("commands/lasfetch", "r")
-		content = f.read();
-		f.close();
-		print(content);
+		os.system("cat commands/lasfetch | lolcat");
+		print();
 	elif cmd_line[0] == "cls":
                 print("\033[H\033[2J", end="\r");
 	elif cmd_line[0] == "dateandtime":
