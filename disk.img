@@ -11,15 +11,28 @@ while (True):
 	if not cmd_line:
                 pass;
 	elif (cmd_line[0] == "help"):
-		os.system("cat commands/1.help | lolcat");
-		print();
+		print("\033[34m+--------------------------------------------+\033[0m");
+		print("\033[34m|\033[0m\033[94mLastOS Command Help 1/1 Page                \033[0m\033[34m|\033[0m");
+		print("\033[34m|\033[0m\033[32m  lasfetch     \033[0m\033[93mshow info of the system\033[0m\033[34m      |\033[0m");
+		print("\033[34m|\033[0m\033[32m  echo         \033[0m\033[93moutput text on screen\033[0m\033[34m        |\033[0m");
+		print("\033[34m|\033[0m\033[32m  cls          \033[0m\033[93mclear screen\033[0m\033[34m                 |\033[0m");
+		print("\033[34m|\033[0m\033[32m  date         \033[0m\033[93mshow date and time\033[0m\033[34m           |\033[0m");
+		print("\033[34m|\033[0m\033[32m  calc         \033[0m\033[93mopen calculator\033[0m\033[34m              |\033[0m");
+		print("\033[34m|\033[0m\033[32m  hexcnv       \033[0m\033[93mconvert any number to hex\033[0m\033[34m    |\033[0m");
+		print("\033[34m|\033[0m\033[32m  octcnv       \033[0m\033[93mconvert any number to octal\033[0m\033[34m  |\033[0m");
+		print("\033[34m|\033[0m\033[32m  aboutlastre  \033[0m\033[93mlastre\033[0m\033[34m                       |\033[0m");
+		print("\033[34m|\033[0m\033[32m  syserr       \033[0m\033[93msystem error test\033[0m\033[34m            |\033[0m");
+		print("\033[34m|\033[0m\033[32m  info         \033[0m\033[93m2 info of system\033[0m\033[34m             |\033[0m");
+		print("\033[34m|\033[0m\033[32m  help         \033[0m\033[93mshow all commands\033[0m\033[34m            |\033[0m");
+		print("\033[34m|\033[0m\033[32m  exit         \033[0m\033[93mshutdown os\033[0m\033[34m                  |\033[0m");
+		print("\033[34m+--------------------------------------------+\033[0m");
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
 		exit();
 	elif cmd_line[0] == "lasfetch":
-		os.system("cat commands/lasfetch | lolcat");
-		print();
+		f = open("commands/lasfetch", "r");
+		print(f.read());
 	elif cmd_line[0] == "cls":
                 print("\033[H\033[2J", end="\r");
 	elif cmd_line[0] == "dateandtime":
