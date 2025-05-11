@@ -9,6 +9,7 @@
 |  octcnv == convert any number to octal  |
 |  aboutlastre == lastre                  |
 |  syserr == system error test            |
+|  info == 2 info of system               |
 |  help == show all commands              |
 |  exit == shutdown os                    |
 +-----------------------------------------+

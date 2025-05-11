@@ -143,5 +143,8 @@ while (True):
 		print_chars("SYSERR\n", 0.01);
 		print_chars("Error code: 0x0001\n", 0.01);
 		time.sleep(2);
+	elif cmd_line[0] == "info":
+		print("\033[34m(C) Release: 2025-05-11\033[0m");
+		print("\033[34mDeveloper: Luxidev\033[0m");
 	else:
 		print("Bad Command.");
