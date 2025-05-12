@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-def cli(errno: error_to_name):
+def cli():
 	print("\033[31mtrapped\033[0m");
 	while (True):
 		com = input("! ");
