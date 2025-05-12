@@ -2,10 +2,11 @@
 
 import time;
 import os;
+import cli;
 
 # FUNCTIONS
 def trap():
-	os.system("python cli.py");
+	cli.cli();
 
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
@@ -43,8 +44,7 @@ while (True):
 		print_chars("\033[32mSystem crash\033[0m\n", 0.01);
 		print_chars("Log: \n", 0.01);
 		print_chars("EXECUTE_AT_ROOT com syserr\n", 0.01);
-		print_chars("call 0x0001\n", 0.01);
-		print_chars("call 0x0002\n", 0.01);
+		print_chars("call 0x000001\n", 0.01);
 		print_chars("EXECUTE_SYSTEM_REBOOT\n", 0.01);
 		print_chars("ERROR_OF_SYSTEM_REBOOT\n", 0.01);
 		print_chars("SYSERR\n", 0.01);
@@ -64,32 +64,32 @@ while (True):
 	elif cmd_line[0] == "dateandtime":
 		print(time.ctime());
 	elif cmd_line[0] == "calc":
-		def add(a, b):
-			return a + b;
-		def subtract(a, b):
-			return a - b;
-		def multiply(a, b):
-			return a * b;
-		def divide(a, b):
-			return a / b;
-
 		choice = input("Operation (+,-,*,/): ");
 
 		num1 = float(input("Enter first number: "));
 		num2 = float(input("Enter second number: "));
 
+		def zdv():
+			try:
+				0/0
+			except ZeroDivisionError:
+				trap();
+
 		if choice == "+":
-			result = add(num1, num2)
+			result = num1 + num2
 			print("Result: ", result);
 		elif choice == "-":
-			result = subtract(num1, num2);
+			result = num1 - num2;
 			print("Result: ", result);
 		elif choice == "*":
-			result = multiply(num1, num2);
+			result = num1 * num2;
 			print("Result: ", result);
 		elif choice == "/":
-			result = divide(num1, num2);
-			print("Result: ", result);
+			try:
+				result = num1 / num2;
+				print("Result: ", result);
+			except ZeroDivisionError:
+				trap();
 		else:
 			print("Incorrent input");
 	elif cmd_line[0] == "linux":
