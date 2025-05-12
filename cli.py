@@ -6,16 +6,16 @@ while (True):
 	if not com:
 		pass;
 	elif com == "h":
-		print("LastOS CLI Command Help 1/1 Page");
-		print("  h - help");
-		print("  t - show trap codes");
-		print("  c - clear screen");
-		print("  q - exit from cli");
+		print("lastos cli help:");
+		print("  h      help");
+		print("  t      show trap codes");
+		print("  c      clear screen");
+		print("  q      exit from cli");
 	elif com == "t":
 		print("0x000001 - command trap test or start cli");
 		print("0x000002 - error in python ZeroDivisionError");
 	elif com == "c":
-		print("\033[H\033[2J");
+		print("\033[H\033[2J", end="\r");
 	elif com == "q":
 		exit();
 	else:

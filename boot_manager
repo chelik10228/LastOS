@@ -10,6 +10,7 @@ def main():
 	print("Click enter for start LastOS");
 	print("\n\n\n\n\n\n\n\n\033[107m                                \033[0m");
 	input();
+	print("\033[H\033[2J", end="\r");
 	script_name = sys.argv[0];
 	args = sys.argv[1];
 	run = os.system(f"python {args}");
