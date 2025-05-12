@@ -4,10 +4,6 @@ import time;
 import os;
 import cli;
 
-# FUNCTIONS
-def trap():
-	cli.cli();
-
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
 print(welcome);
@@ -50,7 +46,7 @@ while (True):
 		print_chars("SYSERR\n", 0.01);
 		print_chars("Error code: 0x000001\n", 0.01);
 		time.sleep(2);
-		trap();
+		cli.cli(0x000001);
 		exit();
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
@@ -69,12 +65,6 @@ while (True):
 		num1 = float(input("Enter first number: "));
 		num2 = float(input("Enter second number: "));
 
-		def zdv():
-			try:
-				0/0
-			except ZeroDivisionError:
-				trap();
-
 		if choice == "+":
 			result = num1 + num2
 			print("Result: ", result);
@@ -89,7 +79,7 @@ while (True):
 				result = num1 / num2;
 				print("Result: ", result);
 			except ZeroDivisionError:
-				trap();
+				cli.cli(0x000002);
 		else:
 			print("Incorrent input");
 	elif cmd_line[0] == "linux":
