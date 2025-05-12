@@ -46,7 +46,7 @@ while (True):
 		print_chars("SYSERR\n", 0.01);
 		print_chars("Error code: 0x000001\n", 0.01);
 		time.sleep(2);
-		cli.cli(0x000001);
+		cli.cli();
 		exit();
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
@@ -79,7 +79,7 @@ while (True):
 				result = num1 / num2;
 				print("Result: ", result);
 			except ZeroDivisionError:
-				cli.cli(0x000002);
+				cli.cli();
 		else:
 			print("Incorrent input");
 	elif cmd_line[0] == "linux":
