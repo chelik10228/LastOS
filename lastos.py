@@ -15,21 +15,24 @@ while (True):
 	elif cmd_line[0] == "help":
 		print("\033[34m+--------------------------------------------+\033[0m");
 		print("\033[34m|\033[0m\033[94mLastOS Command Help 1/1 Page                \033[0m\033[34m|\033[0m");
-		print("\033[34m|\033[0m\033[32m  lasfetch     \033[0m\033[93mshow info of the system\033[0m\033[34m      |\033[0m");
-		print("\033[34m|\033[0m\033[32m  echo         \033[0m\033[93moutput text on screen\033[0m\033[34m        |\033[0m");
-		print("\033[34m|\033[0m\033[32m  cls          \033[0m\033[93mclear screen\033[0m\033[34m                 |\033[0m");
-		print("\033[34m|\033[0m\033[32m  date         \033[0m\033[93mshow date and time\033[0m\033[34m           |\033[0m");
-		print("\033[34m|\033[0m\033[32m  calc         \033[0m\033[93mopen calculator\033[0m\033[34m              |\033[0m");
-		print("\033[34m|\033[0m\033[32m  hexcnv       \033[0m\033[93mconvert any number to hex\033[0m\033[34m    |\033[0m");
-		print("\033[34m|\033[0m\033[32m  octcnv       \033[0m\033[93mconvert any number to octal\033[0m\033[34m  |\033[0m");
-		print("\033[34m|\033[0m\033[32m  aboutlastre  \033[0m\033[93mlastre\033[0m\033[34m                       |\033[0m");
-		print("\033[34m|\033[0m\033[32m  syserr       \033[0m\033[93msystem error test\033[0m\033[34m            |\033[0m");
-		print("\033[34m|\033[0m\033[32m  info         \033[0m\033[93m2 info of system\033[0m\033[34m             |\033[0m");
-		print("\033[34m|\033[0m\033[32m  latutor      \033[0m\033[93mlasto tutorial\033[0m\033[34m               |\033[0m");
-		print("\033[34m|\033[0m\033[32m  music-test   \033[0m\033[93mmusic test with pygame\033[0m\033[34m       |\033[0m");
-		print("\033[34m|\033[0m\033[32m  music-play   \033[0m\033[93mplay music with pygame\033[0m\033[34m       |\033[0m");
-		print("\033[34m|\033[0m\033[32m  help         \033[0m\033[93mshow all commands\033[0m\033[34m            |\033[0m");
-		print("\033[34m|\033[0m\033[32m  exit         \033[0m\033[93mshutdown os\033[0m\033[34m                  |\033[0m");
+		print("\033[34m|\033[0m\033[32m  lasfetch     \033[0m\033[93m show info of the system\033[0m\033[34m     |\033[0m");
+		print("\033[34m|\033[0m\033[32m  echo         \033[0m\033[93m output text on screen\033[0m\033[34m       |\033[0m");
+		print("\033[34m|\033[0m\033[32m  cls          \033[0m\033[93m clear screen\033[0m\033[34m                |\033[0m");
+		print("\033[34m|\033[0m\033[32m  dateandtime  \033[0m\033[93m show date and time\033[0m\033[34m          |\033[0m");
+		print("\033[34m|\033[0m\033[32m  calc         \033[0m\033[93m open calculator\033[0m\033[34m             |\033[0m");
+		print("\033[34m|\033[0m\033[32m  hexcnv       \033[0m\033[93m convert any number to hex\033[0m\033[34m   |\033[0m");
+		print("\033[34m|\033[0m\033[32m  octcnv       \033[0m\033[93m convert any number to octal\033[0m\033[34m |\033[0m");
+		print("\033[34m|\033[0m\033[32m  aboutlastre  \033[0m\033[93m lastre\033[0m\033[34m                      |\033[0m");
+		print("\033[34m|\033[0m\033[32m  syserr       \033[0m\033[93m system error test\033[0m\033[34m           |\033[0m");
+		print("\033[34m|\033[0m\033[32m  info         \033[0m\033[93m 2 info of system\033[0m\033[34m            |\033[0m");
+		print("\033[34m|\033[0m\033[32m  latutor      \033[0m\033[93m lasto tutorial\033[0m\033[34m              |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-test   \033[0m\033[93m music test with pygame\033[0m\033[34m      |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-play   \033[0m\033[93m play music with pygame\033[0m\033[34m      |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-stop   \033[0m\033[93m stop playing music\033[0m\033[34m          |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-pause  \033[0m\033[93m pause playing music\033[0m\033[34m         |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-unpause\033[0m\033[93m unpause playing music\033[0m\033[34m       |\033[0m");
+		print("\033[34m|\033[0m\033[32m  help         \033[0m\033[93m show all commands\033[0m\033[34m           |\033[0m");
+		print("\033[34m|\033[0m\033[32m  exit         \033[0m\033[93m shutdown os\033[0m\033[34m                 |\033[0m");
 		print("\033[34m+--------------------------------------------+\033[0m");
 	elif cmd_line[0] == "syserr":
 		def print_chars(msg, t):
@@ -243,5 +246,11 @@ while (True):
 		music = input("Enter music name (with format): ");
 		mixer.music.load(music);
 		mixer.music.play();
+	elif cmd_line[0] == "music-stop":
+		mixer.music.stop();
+	elif cmd_line[0] == "music-pause":
+		mixer.music.pause();
+	elif cmd_line[0] == "music-unpause":
+		mixer.music.unpause();
 	else:
 		print("Bad Command.");
