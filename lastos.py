@@ -156,6 +156,7 @@ while (True):
 		print("= LastRE contains new commands and fixes, and some of OG LastOS's programs were rewritten. =");
 		print("=                                        v0.1                                              =");
 		print("============================================================================================");
+		print("lastre by metohoru");
 	elif cmd_line[0] == "info":
 		print("\033[34m(C) Release: 2025-05-11\033[0m");
 		print("\033[34mDeveloper: Luxidev\033[0m");
