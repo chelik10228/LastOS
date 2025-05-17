@@ -61,9 +61,6 @@ while (True):
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
 		exit();
-	elif cmd_line[0] == "lasfetch":
-		f = open("commands/lasfetch", "r");
-		print(f.read());
 	elif cmd_line[0] == "cls":
                 print("\033[H\033[2J", end="\r");
 	elif cmd_line[0] == "dateandtime":
