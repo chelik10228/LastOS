@@ -53,10 +53,10 @@ while (True):
 		cli.cli();
 		exit();
 	elif cmd_line[0] == "lasfetch":
-		print("\033[34m  _   \033[0m| \033[34mOS Name\033[0m: LastOS");
-		print("\033[34m ('=  \033[0m| \033[34mOS Version\033[0m: 1.0");
-		print("\033[34m /_)  \033[0m| \033[34mLang\033[0m: Python");
-		print("\033[34m /||  \033[0m| \033[34mDeveloper\033[0m: Luxidev");
+		print("\033[34m  _   \033[0m| \033[34mOS Name\033[0m: LastOS 1.0");
+		print("\033[34m ('=  \033[0m| \033[34mLang\033[0m: Python");
+		print("\033[34m /_)  \033[0m| \033[34mDeveloper\033[0m: Luxidev");
+		print("\033[34m /||  \033[0m| \033[34mRelease Date\033[0m: 2025-05-17");
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
@@ -163,7 +163,7 @@ while (True):
 		print("============================================================================================");
 		print("lastre by metohoru");
 	elif cmd_line[0] == "info":
-		print("\033[34m(C) Release: 2025-05-11\033[0m");
+		print("\033[34m(C) Release: 2025-05-17\033[0m");
 		print("\033[34mDeveloper: Luxidev\033[0m");
 	elif cmd_line[0] == "cat":
 		print("nya");
