@@ -52,6 +52,11 @@ while (True):
 		time.sleep(2);
 		cli.cli();
 		exit();
+	elif cmd_line[0] == "lasfetch":
+		print("\033[34m  _   \033[0m| \033[34mOS Name\033[0m: LastOS");
+		print("\033[34m ('=  \033[0m| \033[34mOS Version\033[0m: 1.0");
+		print("\033[34m /_)  \033[0m| \033[34mLang\033[0m: Python");
+		print("\033[34m /||  \033[0m| \033[34mDeveloper\033[0m: Luxidev");
 	elif cmd_line[0] == "echo":
 		print(" ".join(cmd_line[1:]));
 	elif cmd_line[0] == "exit":
