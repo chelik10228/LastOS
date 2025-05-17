@@ -3,6 +3,7 @@
 import time;
 import os;
 import cli;
+from pygame import mixer;
 
 print("\033[H\033[2J", end="\r");
 welcome = "Welcome to \033[32mLastOS\033[0m"
@@ -25,6 +26,8 @@ while (True):
 		print("\033[34m|\033[0m\033[32m  syserr       \033[0m\033[93msystem error test\033[0m\033[34m            |\033[0m");
 		print("\033[34m|\033[0m\033[32m  info         \033[0m\033[93m2 info of system\033[0m\033[34m             |\033[0m");
 		print("\033[34m|\033[0m\033[32m  latutor      \033[0m\033[93mlasto tutorial\033[0m\033[34m               |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-test   \033[0m\033[93mmusic test with pygame\033[0m\033[34m       |\033[0m");
+		print("\033[34m|\033[0m\033[32m  music-play   \033[0m\033[93mplay music with pygame\033[0m\033[34m       |\033[0m");
 		print("\033[34m|\033[0m\033[32m  help         \033[0m\033[93mshow all commands\033[0m\033[34m            |\033[0m");
 		print("\033[34m|\033[0m\033[32m  exit         \033[0m\033[93mshutdown os\033[0m\033[34m                  |\033[0m");
 		print("\033[34m+--------------------------------------------+\033[0m");
@@ -228,5 +231,14 @@ while (True):
 		print("Cool bro! You know how to using LastOS now!!!");
 		time.sleep(1);
 		print("Good bye bro!!!!!");
+	elif cmd_line[0] == "music-test":
+		mixer.init();
+		mixer.music.load("sceptrum.mp3");
+		mixer.music.play();
+	elif cmd_line[0] == "music-play":
+		mixer.init();
+		music = input("Enter music name (with format): ");
+		mixer.music.load(music);
+		mixer.music.play();
 	else:
 		print("Bad Command.");
