@@ -55,7 +55,7 @@ print("\033[H\033[2J", end="\r");
 sleep(.2);
 print(f"L/: 19,005,422 bytes free, 5 directories, 2 files");
 sleep(.055);
-print("Initializing \033[94mLastOS\033[0m 1.2.4");
+print("Initializing \033[94mLastOS\033[0m 1.3.2");
 sleep(.24);
 print("  [0.000000]\tcreating virtual disk filesystem");
 sleep(.1);
@@ -108,11 +108,16 @@ while (True):
     cli.cli(0x00000003);
     exit(1);
   elif cmd_line[0] == "lasfetch":
-    print(f"\033[94m      \033[0m| \033[94m{lasto_username}\033[0m@\033[94m{shell_call('hostname')[:-1]}\033[0m");
-    print("\033[94m  _   \033[0m| \033[94mOS Name\033[0m: LastOS 1.1");
-    print("\033[94m ('=  \033[0m| \033[94mLang\033[0m: Python");
-    print("\033[94m /_)  \033[0m| \033[94mDeveloper\033[0m: Luxidev & Xi816");
-    print("\033[94m /||  \033[0m| \033[94mRelease Date\033[0m: 2025-05-18");
+    freemem = "/".join(shell_call("free -h").split()[7:9][::-1]);
+    freedsk = "/".join(shell_call("df -h /").split()[8:10][::-1]);
+    print(f"\033[94m  _    \033[94m{lasto_username}\033[0m@\033[94m{shell_call('hostname')[:-1]}\033[0m");
+    print("\033[94m ('=   \033[0m--------------");
+    print("\033[94m /_)   \033[94mOS Name\033[0m: LastOS 1.3.2");
+    print("\033[94m /||   \033[94mLang\033[0m: Python");
+    print("\033[94m       \033[94mDeveloper\033[0m: Luxidev & Xi816");
+    print("\033[94m       \033[94mRelease Date\033[0m: 25-05-19");
+    print(f"\033[94m       \033[94mMemory\033[0m: {freemem}");
+    print(f"\033[94m       \033[94mDisk space\033[0m: {freedsk}\n");
   elif cmd_line[0] == "echo":
     print(" ".join(cmd_line[1:]));
   elif cmd_line[0] == "exit":
@@ -128,28 +133,9 @@ while (True):
   elif cmd_line[0] == "date":
     system(f"date +'{lasto_setting_date_format}'");
   elif cmd_line[0] == "calc":
-    choice = input("Operation (+,-,*,/): ");
-
-    num1 = float(input("Enter first number: "));
-    num2 = float(input("Enter second number: "));
-
-    if choice == "+":
-      result = num1 + num2
-      print("Result: ", result);
-    elif choice == "-":
-      result = num1 - num2;
-      print("Result: ", result);
-    elif choice == "*":
-      result = num1 * num2;
-      print("Result: ", result);
-    elif choice == "/":
-      try:
-        result = num1 / num2;
-        print("Result: ", result);
-      except ZeroDivisionError:
-        cli.cli();
-    else:
-      print("Incorrent input");
+    print("Calculator for LastOS 1.3.2");
+    while ((a := input("; ")) not in ["q", "quit", "exit"]):
+      print(eval(a));
   elif cmd_line[0] == "linux":
     print("You found a secret!");
     print("         _nnnn_");
@@ -222,7 +208,7 @@ while (True):
     print("============================================================================================");
     print("lastre by metohoru");
   elif cmd_line[0] == "info":
-    print("\033[94mVersion: 1.1\033[0m");
+    print("\033[94mVersion: 1.3.2\033[0m");
     print("\033[94m(C) Release: 2025-05-18\033[0m");
     print("\033[94mDeveloper: Luxidev & Xi816\033[0m");
   elif cmd_line[0] == "latutor":
