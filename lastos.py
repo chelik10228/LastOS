@@ -42,8 +42,9 @@ def FS_Load(disk):
   disk = FS_DirCreate(disk, "L/lasto/Documents");
   disk = FS_DirCreate(disk, "L/lasto/Pictures");
   disk = FS_DirCreate(disk, "L/lasto/Downloads");
-  disk = FS_FileCreate(disk, "L/lasto/Downloads/file1.txt");
-  disk = FS_FileCreate(disk, "L/lasto/Downloads/file2.txt");
+  disk = FS_DirCreate(disk, "L/lasto/Music");
+  disk = FS_FileCreate(disk, "L/lasto/Downloads/file1.txt", "runtime/file1.txt");
+  disk = FS_FileCreate(disk, "L/lasto/Downloads/file2.txt", "runtime/file2.txt");
 
 disk = FS_DiskInit("L");
 FS_Load(disk);
@@ -198,11 +199,6 @@ while (True):
     print("\033[94mVersion: 1.1\033[0m");
     print("\033[94m(C) Release: 2025-05-18\033[0m");
     print("\033[94mDeveloper: Luxidev & Xi816\033[0m");
-  elif cmd_line[0] == "cat":
-    print("nya");
-    print("  /\_/\\");
-    print(" ( o.o )");
-    print("  > ^ <");
   elif cmd_line[0] == "latutor":
     print("Welcome to \033[33mLasto\033[0m Tutorial!");
     print("\033[32mPress enter to start tutorial...\033[0m");
@@ -294,6 +290,8 @@ while (True):
       cwd += cmd_line[1]+"/";
   elif cmd_line[0] == "pwd":
     print(cwd);
+  elif cmd_line[0] == "cat":
+    print(FS_FileRead(disk, cwd+cmd_line[1]).decode("utf-8"));
   elif cmd_line[0] == "ls":
     print(FS_ListDirs(disk, cwd) + FS_ListFiles(disk, cwd));
   else:

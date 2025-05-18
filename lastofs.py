@@ -17,14 +17,24 @@ def FS_DirCreate(disk, path):
   exec(f"disk{dict_path}['{name}'] = {new_dir};");
   return disk;
 
-def FS_FileCreate(disk, path):
+def FS_FileCreate(disk, path, fn):
   path = path.split("/");
   name = path[-1];
   path = path[:-1];
   dict_path = "['" + "']['files']['".join(path) + "']['files']";
-  new_file = str({"type": "f", "name": name, "contents": bytearray([0])});
+  with open(fn, "rb") as s:
+    f = s.read();
+  new_file = str({"type": "f", "name": name, "contents": bytearray(f)});
   exec(f"disk{dict_path}['{name}'] = {new_file};");
   return disk;
+
+def FS_FileRead(disk, path):
+  path = path.split("/");
+  name = path[-1];
+  path = path[:-1];
+  dict_path = "['" + "']['files']['".join(path) + "']['files']";
+  exec(f"global s; s = disk{dict_path}['{name}']['contents'];");
+  return s;
 
 def FS_ListDirs(disk, cwd):
   path = cwd.split("/");
@@ -49,14 +59,4 @@ def FS_ListFiles(disk, cwd):
     if (i["type"] == "f"):
       res += f"\033[92m{i['name']}\033[0m ";
   return res;
-
-disk = FS_DiskInit("L");
-disk = FS_DirCreate(disk, "L/Documents");
-disk = FS_DirCreate(disk, "L/Downloads");
-disk = FS_DirCreate(disk, "L/Photos");
-disk = FS_DirCreate(disk, "L/Music");
-disk = FS_FileCreate(disk, "L/file.txt");
-disk = FS_FileCreate(disk, "L/Documents/file.txt");
-
-print(FS_ListDirs(disk, "L/") + FS_ListFiles(disk, "L/"));
 
