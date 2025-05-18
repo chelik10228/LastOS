@@ -55,7 +55,7 @@ print("\033[H\033[2J", end="\r");
 sleep(.2);
 print(f"L/: 19,005,422 bytes free, 5 directories, 2 files");
 sleep(.055);
-print("Initializing \033[94mLastOS\033[0m 1.3.2");
+print("Initializing \033[94mLastOS\033[0m 1.3.3");
 sleep(.24);
 print("  [0.000000]\tcreating virtual disk filesystem");
 sleep(.1);
@@ -81,9 +81,9 @@ while (True):
   elif cmd_line[0] == "help":
     print("\033[34m+--------------------------------------------+");
     print("|\033[94mLastOS Command Help 1/1 Page\033[34m                |");
-    print("|\033[32m  aboutlastre   \033[93mlastre\033[34m                      |");
     print("|\033[32m  calc          \033[93mopen calculator\033[34m             |");
     print("|\033[32m  cd            \033[93mchange directory\033[34m            |");
+    print("|\033[32m  changelog     \033[93msee change log\033[34m              |");
     print("|\033[32m  cls           \033[93mclear screen\033[34m                |");
     print("|\033[32m  date          \033[93mshow date and time\033[34m          |");
     print("|\033[32m  echo          \033[93moutput text on screen\033[34m       |");
@@ -112,7 +112,7 @@ while (True):
     freedsk = "/".join(shell_call("df -h /").split()[8:10][::-1]);
     print(f"\033[94m  _    \033[94m{lasto_username}\033[0m@\033[94m{shell_call('hostname')[:-1]}\033[0m");
     print("\033[94m ('=   \033[0m--------------");
-    print("\033[94m /_)   \033[94mOS Name\033[0m: LastOS 1.3.2");
+    print("\033[94m /_)   \033[94mOS Name\033[0m: LastOS 1.3.3");
     print("\033[94m /||   \033[94mLang\033[0m: Python");
     print("\033[94m       \033[94mDeveloper\033[0m: Luxidev & Xi816");
     print("\033[94m       \033[94mRelease Date\033[0m: 25-05-19");
@@ -133,7 +133,7 @@ while (True):
   elif cmd_line[0] == "date":
     system(f"date +'{lasto_setting_date_format}'");
   elif cmd_line[0] == "calc":
-    print("Calculator for LastOS 1.3.2");
+    print("Calculator for LastOS 1.3.3");
     while ((a := input("; ")) not in ["q", "quit", "exit"]):
       print(eval(a));
   elif cmd_line[0] == "linux":
@@ -200,15 +200,8 @@ while (True):
       print("Result:", convert);
     else:
       print("Incorrect Input");
-  elif cmd_line[0] == "aboutlastre":
-    print("============================================================================================");
-    print("=    LastRE is a fork of LastOS - a pseudo-OS written on Python.                           =");
-    print("= LastRE contains new commands and fixes, and some of OG LastOS's programs were rewritten. =");
-    print("=                                        v0.1                                              =");
-    print("============================================================================================");
-    print("lastre by metohoru");
   elif cmd_line[0] == "info":
-    print("\033[94mVersion: 1.3.2\033[0m");
+    print("\033[94mVersion: 1.3.3\033[0m");
     print("\033[94m(C) Release: 2025-05-18\033[0m");
     print("\033[94mDeveloper: Luxidev & Xi816\033[0m");
   elif cmd_line[0] == "latutor":
@@ -274,6 +267,8 @@ while (True):
     print(cwd);
   elif cmd_line[0] == "cat":
     print(FS_FileRead(disk, cwd+cmd_line[1]).decode("utf-8"));
+  elif cmd_line[0] == "changelog":
+    system("less runtime/changelog.txt");
   elif cmd_line[0] == "ls":
     if (len(cmd_line) == 1):
       print(FS_ListDirs(disk, cwd) + FS_ListFiles(disk, cwd));
