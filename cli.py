@@ -2,8 +2,8 @@
 
 import os;
 
-def cli():
-	print("\033[31mtrapped\033[0m");
+def cli(c: int):
+	print(f"\033[91mtrapped\033[0m at 0x{hex(c)[2:]:0>8}");
 	while (True):
 		com = input("! ");
 		if not com:
@@ -16,8 +16,10 @@ def cli():
 			print("  r      run lastos");
 			print("  q      exit from cli");
 		elif com == "t":
-			print("0x000001 - command trap test or start cli");
-			print("0x000002 - error in python ZeroDivisionError");
+			print("  0x000000\tUnexpected error");
+			print("  0x000001\tTrap");
+			print("  0x000002\tDivision by zero");
+			print("  0x000003\tSystem error");
 		elif com == "c":
 			print("\033[H\033[2J", end="\r");
 		elif com == "r":

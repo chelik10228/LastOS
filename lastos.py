@@ -11,6 +11,11 @@ from pygame import mixer;
 
 import subprocess;
 
+def print_chars(msg, t):
+  for i in msg:
+    print(end=i, flush=True);
+    time.sleep(t);
+
 def shell_call(command, shell=True, universal_newlines=True):
   try:
     result = subprocess.run(
@@ -79,26 +84,8 @@ while (True):
     print("|\033[32m  syserr        \033[93msystem error test\033[34m           |");
     print("+--------------------------------------------+\033[0m");
   elif cmd_line[0] == "syserr":
-    def print_chars(msg, t):
-      for i in msg:
-        print(end=i, flush=True);
-        time.sleep(t);
-    print("\033[H\033[2J", end="\r");
-    time.sleep(2);
-    print_chars("-------------------\n", 0.01);
-    print_chars("\033[31mSYSTEM ERROR\033[0m\n", 0.01);
-    print_chars("-------------------\n", 0.01);
-    print_chars("\033[32mSystem crash\033[0m\n", 0.01);
-    print_chars("Log: \n", 0.01);
-    print_chars("EXECUTE_AT_ROOT com syserr\n", 0.01);
-    print_chars("call 0x000001\n", 0.01);
-    print_chars("EXECUTE_SYSTEM_REBOOT\n", 0.01);
-    print_chars("ERROR_OF_SYSTEM_REBOOT\n", 0.01);
-    print_chars("SYSERR\n", 0.01);
-    print_chars("Error code: 0x000001\n", 0.01);
-    time.sleep(2);
-    cli.cli();
-    exit();
+    cli.cli(0x00000003);
+    exit(1);
   elif cmd_line[0] == "lasfetch":
     print(f"\033[94m      \033[0m| \033[94m{lasto_username}\033[0m@\033[94m{shell_call('hostname')[:-1]}\033[0m");
     print("\033[94m  _   \033[0m| \033[94mOS Name\033[0m: LastOS 1.1");
@@ -305,6 +292,7 @@ while (True):
       cwd = "/".join(cwd[:-1].split("/")[:-1])+"/";
     else:
       cwd += cmd_line[1]+"/";
+  elif cmd_line[0] == "pwd":
     print(cwd);
   elif cmd_line[0] == "ls":
     print(FS_ListDirs(disk, cwd) + FS_ListFiles(disk, cwd));
