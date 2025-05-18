@@ -1,19 +1,40 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys;
 import os;
 import time;
 
+from readchar import readkey;
+
 def main():
-	print("\033[H\033[2J\033[107m                                \033[0m\n");
-	print("Lasto Boot Manager 0.2");
-	print("Click enter for start LastOS");
-	print("\n\n\n\n\n\n\n\n\033[107m                                \033[0m");
-	input();
-	print("\033[H\033[2J", end="\r");
-	script_name = sys.argv[0];
-	args = sys.argv[1];
-	run = os.system(f"python {args}");
+  options = ["Start LastOS", "System repair", "Shutdown"];
+  current = 0;
+  colored = ["\033[0m", "\033[107m\033[30m"];
+  while (1):
+    print("\033[H\033[2J\033[107m\033[K\033[0m\n");
+    print("Lasto Boot Manager 0.2");
+    print("Click enter to start the selected option\n\n");
+
+    for i,j in enumerate(options):
+      print(f"    {colored[current == i]}{j}\033[K\033[999C\033[4D\033[0m     ");
+    print(end="\033[999B\033[107m\033[K\033[0m", flush=True);
+
+    k = readkey();
+    if (k == "\033[A"):
+      current = (current - 1) % len(options);
+    elif (k == "\033[B"):
+      current = (current + 1) % len(options);
+    elif (k == "\n"):
+      if (current == 0):
+        print("\033[H\033[2J", end="\r");
+        os.system(f"python3 lastos.py");
+        exit(0);
+      elif (current == 1):
+        os.system(f"python3 repair.py");
+        exit(1);
+      elif (current == 2):
+        print("\033[H\033[2J", end="\r");
+        exit(0);
 
 if __name__ == "__main__":
-	main();
+  main();
