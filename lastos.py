@@ -66,6 +66,7 @@ sleep(.14);
 print("  [0.247918]\tsetting up shell and user settings");
 cwd = "L/lasto/";
 lasto_username = "lasto";
+lasto_setting_date_format = "%Y-%m-%d %H:%M:%S";
 sleep(.4);
 print("  [0.681142]\tLastOS is ready to use!");
 sleep(.2);
@@ -84,7 +85,7 @@ while (True):
     print("|\033[32m  calc          \033[93mopen calculator\033[34m             |");
     print("|\033[32m  cd            \033[93mchange directory\033[34m            |");
     print("|\033[32m  cls           \033[93mclear screen\033[34m                |");
-    print("|\033[32m  dateandtime   \033[93mshow date and time\033[34m          |");
+    print("|\033[32m  date          \033[93mshow date and time\033[34m          |");
     print("|\033[32m  echo          \033[93moutput text on screen\033[34m       |");
     print("|\033[32m  exit          \033[93mshutdown os\033[34m                 |");
     print("|\033[32m  help          \033[93mshow all commands\033[34m           |");
@@ -118,8 +119,14 @@ while (True):
     exit();
   elif cmd_line[0] == "cls":
                 print("\033[H\033[2J", end="\r");
-  elif cmd_line[0] == "dateandtime":
-    print(time.ctime());
+  elif cmd_line[0] == "var":
+    if (len(cmd_line) < 3):
+      print("var: syntax error");
+      print("usage: var <varname> <value>");
+    else:
+      exec(f"lasto_setting_{cmd_line[1]} = \"{' '.join(cmd_line[2:])}\"");
+  elif cmd_line[0] == "date":
+    system(f"date +'{lasto_setting_date_format}'");
   elif cmd_line[0] == "calc":
     choice = input("Operation (+,-,*,/): ");
 
@@ -223,68 +230,33 @@ while (True):
     print("\033[32mPress enter to start tutorial...\033[0m");
     input();
     print("\033[H\033[2J");
-    print("Okay, start from commands.");
-    print("Wait 3 seconds for show other commands");
-    print("lasfetch - this command is outputing information of system lastos, example fastfetch or neofetch");
-    time.sleep(3);
-    print("echo - all know's this command, this command is printing text on screen which you typed");
-    time.sleep(3);
-    print("cls - this command is clearing terminal");
-    time.sleep(3);
-    print("date - command is printing date in terminal");
-    time.sleep(3);
-    print("calc - this command is opening terminal calculator");
-    time.sleep(3);
-    print("hexcnv - this command is can convert any number to hex or hex to number");
-    time.sleep(3);
-    print("octcnv - this command is can convert any number to octal or octal to number");
-    time.sleep(3);
-    print("aboutlastre - it's info of lastos by teaxdev");
-    time.sleep(3);
-    print("syserr - it's command is test of system error");
-    time.sleep(3);
-    print("info - it's other info of lastos");
-    time.sleep(3);
-    print("help - show all commands");
-    time.sleep(3);
-    print("exit - exit with os");
-    time.sleep(1);
-    print("\033[H\033[2J");
-    print("Okay, now you know all commands, and now...");
-    time.sleep(1);
-    print("Let's learn using of commands!");
-    time.sleep(1);
-    print("1. calc");
-    time.sleep(1);
-    print("Using calc easy!");
-    time.sleep(1);
-    print("Select operation, +, -, * or /");
-    time.sleep(1);
-    print("Next, type 1 any numbers");
-    time.sleep(1);
-    print("And press enter, and type 2 any numbers");
-    time.sleep(1);
-    print("Done! You learned how to using calculator in lastos!");
-    time.sleep(1);
-    print("2. hexcnv");
-    time.sleep(1);
-    print("Using hexcnv too easy!");
-    time.sleep(1);
-    print("You need select number 1 or 2, 1 = number to hex, 2 = hex to number");
-    time.sleep(1);
-    print("Next select any number");
-    time.sleep(1);
-    print("And... Result!");
-    time.sleep(1);
-    print("Good! Now you know how to using hexcnv!");
-    time.sleep(1);
-    print("3. octcnv");
-    time.sleep(1);
-    print("Using octcnv it's copy of hex but not hex, a octal");
-    time.sleep(1);
+    print("Okay, let's start from commands.");
+    print("\033[92mlasfetch\033[0m - this command outputs information of the LastOS operating system");
+    sleep(3);
+    print("\033[92mecho\033[0m - this command prints text (echoes back) to the screen");
+    sleep(3);
+    print("\033[92mcls\033[0m - this command clears the terminal");
+    sleep(3);
+    print("\033[92mdate\033[0m - command prints current date into the terminal");
+    sleep(3);
+    print("\033[92mcalc\033[0m - this command runs a terminal calculator");
+    sleep(3);
+    print("\033[92mhexcnv\033[0m - this command converts any decimal number to hexadecimal or vice versa");
+    sleep(3);
+    print("\033[92moctcnv\033[0m - this command converts any decimal number to octal or vice versa");
+    sleep(3);
+    print("\033[92maboutlastre\033[0m - LastOS info by metohoru");
+    sleep(3);
+    print("\033[92msyserr\033[0m - starts up test kernel panic");
+    sleep(3);
+    print("\033[92minfo\033[0m - shows LastOS release info");
+    sleep(3);
+    print("\033[92mhelp\033[0m - show help");
+    sleep(3);
+    print("\033[92mexit\033[0m - exits from the OS");
+    sleep(1);
     print("Cool bro! You know how to using LastOS now!!!");
-    time.sleep(1);
-    print("Good bye bro!!!!!");
+    sleep(1);
   elif cmd_line[0] == "music-test":
     mixer.init();
     mixer.music.load("sceptrum.mp3");
