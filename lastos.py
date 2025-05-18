@@ -7,6 +7,7 @@ import cli;
 from lastofs import *;
 
 from os import system;
+from time import sleep;
 from pygame import mixer;
 
 import subprocess;
@@ -35,7 +36,6 @@ def shell_call(command, shell=True, universal_newlines=True):
     ) from e;
 
 def FS_Load(disk):
-  print("Loading filesystem...");
   disk = FS_DirCreate(disk, "L/bin");
   disk = FS_DirCreate(disk, "L/usr");
   disk = FS_DirCreate(disk, "L/lasto");
@@ -46,19 +46,38 @@ def FS_Load(disk):
   disk = FS_FileCreate(disk, "L/lasto/Downloads/file1.txt", "runtime/file1.txt");
   disk = FS_FileCreate(disk, "L/lasto/Downloads/file2.txt", "runtime/file2.txt");
 
-disk = FS_DiskInit("L");
-FS_Load(disk);
-cwd = "L/lasto/";
-lasto_username = "lasto";
+  songs = shell_call("find runtime/music/ -type f");
+  for i in songs.split("\n")[:-1]:
+    i = i.split("/")[-1];
+    disk = FS_FileCreate(disk, f"L/lasto/Music/{i}", f"runtime/music/{i}");
 
 print("\033[H\033[2J", end="\r");
+sleep(.2);
+print(f"L/: 19,005,422 bytes free, 5 directories, 2 files");
+sleep(.055);
+print("Initializing \033[94mLastOS\033[0m 1.2.4");
+sleep(.24);
+print("  [0.000000]\tcreating virtual disk filesystem");
+sleep(.1);
+disk = FS_DiskInit("L");
+print("  [0.101992]\tcreating basic filesystem hierarachy");
+FS_Load(disk);
+sleep(.14);
+print("  [0.247918]\tsetting up shell and user settings");
+cwd = "L/lasto/";
+lasto_username = "lasto";
+sleep(.4);
+print("  [0.681142]\tLastOS is ready to use!");
+sleep(.2);
+print("\n");
+
 welcome = "Welcome to \033[94mLastOS\033[0m"
 print(welcome);
 while (True):
-  cmd_line = input("> ").split();
+  cmd_line = input(f"\033[94m{cwd}>\033[0m ").split();
   if not cmd_line:
-    pass;
-  if cmd_line[0] == "help":
+    continue;
+  elif cmd_line[0] == "help":
     print("\033[34m+--------------------------------------------+");
     print("|\033[94mLastOS Command Help 1/1 Page\033[34m                |");
     print("|\033[32m  aboutlastre   \033[93mlastre\033[34m                      |");
@@ -272,8 +291,9 @@ while (True):
     mixer.music.play();
   elif cmd_line[0] == "music-play":
     mixer.init();
-    music = input("Enter music name (with format): ");
-    mixer.music.load(music);
+    music_fn = input("Enter music name (with format): ");
+    FS_FileStream(disk, "L/lasto/Music/"+music_fn, "runtime/tmp/music.mp3");
+    mixer.music.load("runtime/tmp/music.mp3");
     mixer.music.play();
   elif cmd_line[0] == "music-stop":
     mixer.music.stop();
@@ -282,18 +302,27 @@ while (True):
   elif cmd_line[0] == "music-unpause":
     mixer.music.unpause();
   elif cmd_line[0] == "music-list":
-    system("find . -name \"*.mp3\" | cut -b 3-");
+    for i,j in enumerate(FS_ListFilesRaw(disk, "L/lasto/Music/").split(" ")):
+      print(f"{i+1}\t{j}");
   elif cmd_line[0] == "cd":
     if (cmd_line[1] == ".."):
-      cwd = "/".join(cwd[:-1].split("/")[:-1])+"/";
+      if (len(cwd) != 2):
+        cwd = "/".join(cwd[:-1].split("/")[:-1])+"/";
     else:
-      cwd += cmd_line[1]+"/";
+      if (cmd_line[1][-1] != "/"):
+        cmd_line[1] += "/";
+      cwd += cmd_line[1];
   elif cmd_line[0] == "pwd":
     print(cwd);
   elif cmd_line[0] == "cat":
     print(FS_FileRead(disk, cwd+cmd_line[1]).decode("utf-8"));
   elif cmd_line[0] == "ls":
-    print(FS_ListDirs(disk, cwd) + FS_ListFiles(disk, cwd));
+    if (len(cmd_line) == 1):
+      print(FS_ListDirs(disk, cwd) + FS_ListFiles(disk, cwd));
+    else:
+      if (cmd_line[1][-1] != "/"):
+        cmd_line[1] += "/";
+      print(FS_ListDirs(disk, cwd+cmd_line[1]) + FS_ListFiles(disk, cwd+cmd_line[1]));
   else:
     print("Bad Command.");
 

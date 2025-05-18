@@ -36,6 +36,28 @@ def FS_FileRead(disk, path):
   exec(f"global s; s = disk{dict_path}['{name}']['contents'];");
   return s;
 
+def FS_FileStream(disk, path, stream_fn):
+  path = path.split("/");
+  name = path[-1];
+  path = path[:-1];
+  dict_path = "['" + "']['files']['".join(path) + "']['files']";
+  exec(f"global s; s = disk{dict_path}['{name}']['contents'];");
+  with open(stream_fn, "wb") as fl:
+    fl.write(s);
+
+def FS_ListDirsRaw(disk, cwd):
+  path = cwd.split("/");
+  name = path[-1];
+  path = path[:-1];
+  dict_path = "['" + "']['files']['".join(path) + "']['files']";
+  exec(f"global files; files = disk{dict_path};");
+  res = "";
+  for i in files.values():
+    if (i["type"] == "d"):
+      res += f"{i['name']} ";
+  res = res[:-1];
+  return res;
+
 def FS_ListDirs(disk, cwd):
   path = cwd.split("/");
   name = path[-1];
@@ -46,6 +68,20 @@ def FS_ListDirs(disk, cwd):
   for i in files.values():
     if (i["type"] == "d"):
       res += f"\033[94m{i['name']}\033[0m ";
+  res = res[:-1];
+  return res;
+
+def FS_ListFilesRaw(disk, cwd):
+  path = cwd.split("/");
+  name = path[-1];
+  path = path[:-1];
+  dict_path = "['" + "']['files']['".join(path) + "']['files']";
+  exec(f"global files; files = disk{dict_path};");
+  res = "";
+  for i in files.values():
+    if (i["type"] == "f"):
+      res += f"{i['name']} ";
+  res = res[:-1];
   return res;
 
 def FS_ListFiles(disk, cwd):
@@ -58,5 +94,6 @@ def FS_ListFiles(disk, cwd):
   for i in files.values():
     if (i["type"] == "f"):
       res += f"\033[92m{i['name']}\033[0m ";
+  res = res[:-1];
   return res;
 
