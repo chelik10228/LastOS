@@ -22,6 +22,7 @@ def cli():
 			print("\033[H\033[2J", end="\r");
 		elif com == "r":
 			os.system("python boot_manager lastos.py");
+			exit();
 		elif com == "q":
 			exit();
 		else:
