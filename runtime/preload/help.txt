@@ -12,6 +12,7 @@
 |\ESC[92m  hexcnv        \ESC[93mConvert any number to HEX\ESC[34m   |
 |\ESC[92m  info          \ESC[93mLastOS release info\ESC[34m         |
 |\ESC[92m  lasfetch      \ESC[93mFetch system info\ESC[34m           |
+|\ESC[92m  lassettings   \ESC[93mEdit system settings\ESC[34m        |
 |\ESC[92m  latutor       \ESC[93mLastOS tutorial\ESC[34m             |
 |\ESC[92m  ls            \ESC[93mList files\ESC[34m                  |
 |\ESC[92m  music-list    \ESC[93mList music in L/Music/\ESC[34m      |
