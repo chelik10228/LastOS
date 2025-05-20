@@ -1,0 +1,13 @@
+\ESC[92mlasfetch\ESC[0m - this command outputs information of the LastOS operating system
+\ESC[92mecho\ESC[0m - this command prints text (echoes back) to the screen
+\ESC[92mcls\ESC[0m - this command clears the terminal
+\ESC[92mdate\ESC[0m - command prints current date into the terminal
+\ESC[92mcalc\ESC[0m - this command runs a terminal calculator
+\ESC[92mhexcnv\ESC[0m - this command converts any decimal number to hexadecimal or vice versa
+\ESC[92moctcnv\ESC[0m - this command converts any decimal number to octal or vice versa
+\ESC[92maboutlastre\ESC[0m - LastOS info by metohoru
+\ESC[92msyserr\ESC[0m - starts up test kernel panic
+\ESC[92minfo\ESC[0m - shows LastOS release info
+\ESC[92mhelp\ESC[0m - show help
+\ESC[92mexit\ESC[0m - exits from the OS
+Cool bro! You know how to use LastOS now!!!

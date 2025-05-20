@@ -14,6 +14,7 @@ errors = {
 
 def cli(c: int):
   print(f"\033[91mtrapped\033[0m at 0x{hex(c)[2:]:0>8}");
+  print(f"\033[91mError:\033[0m {errors[c]}");
   while (True):
     com = input("! ");
     if not com:
