@@ -1,4 +1,7 @@
+import time;
 import subprocess;
+
+_timer_start = None;
 
 def print_chars(msg, t):
   for i in msg:
@@ -35,3 +38,12 @@ def shell_call(command, shell=True, universal_newlines=True):
     raise subprocess.CalledProcessError(
       e.returncode, e.cmd, error_output
     ) from e;
+
+def start_timer():
+  global _timer_start;
+  _timer_start = time.time();
+
+def cur_timer():
+  if (_timer_start is None):
+    return None;
+  return time.time() - _timer_start;

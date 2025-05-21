@@ -47,55 +47,57 @@ def Lasto_Init():
   print(f"L/: 19,005,422 bytes free, 5 directories, 2 files");
   sleep(.055);
   print(f"Initializing \033[94mLastOS\033[0m {LASTO_VERSION}");
-  sleep(.24);
-  print("  [0.000000]\tcreating virtual disk filesystem");
-  sleep(.1);
+  sleep(.23);
+  start_timer();
+  print(f"  [{cur_timer():.6f}]\tallocating memory for the kernel"); sleep(.11);
+  print(f"  [{cur_timer():.6f}]\tRAM allocated: 80 MiB [0xF8000000-0xFCFFFFFF]"); sleep(.06);
+  print(f"  [{cur_timer():.6f}]\tloading Lasto kernel"); sleep(.34);
+  print(end=f"  [{cur_timer():.6f}]\tsearching for disks"); sleep(.03);
+  for i in range(3):
+    print(end=".", flush=True);
+    sleep(.083);
+  print(f"\n  [{cur_timer():.6f}]\tcreating virtual disk filesystem"); sleep(.1);
   disk = FS_DiskInit("L");
-  print("  [0.101992]\tcreating basic filesystem hierarachy");
+  print(f"  [{cur_timer():.6f}]\tcreating basic filesystem hierarachy"); sleep(.14);
   disk = FS_Init(disk);
-  sleep(.14);
-  print("  [0.247918]\tsetting up shell and user settings");
+  print(end=f"  [{cur_timer():.6f}]\tloading Lasto drivers"); sleep(.03);
+  for i in range(3):
+    print(end=".", flush=True);
+    sleep(.083);
+  print(f"\n  [{cur_timer():.6f}]\tinitializing services"); sleep(.03);
+  print(f"  [{cur_timer():.6f}]\tsetting up shell and user settings"); sleep(.4);
   cwd = "L/lasto/";
   settings["username"] = "lasto";
+  settings["hostname"] = "lastopc";
   settings["date_format"] = "%-m/%d/%y %H:%M:%S";
-  sleep(.4);
-  print("  [0.681142]\tLastOS is ready to use!");
-  sleep(.2);
-  print("\n");
+  print(f"  [{cur_timer():.6f}]\tLastOS is ready to use!"); sleep(.2);
+  print("");
 
 Lasto_Init();
 print("Welcome to \033[94mLastOS\033[0m");
 while (1):
   cmd_line = input(f"\033[94m{cwd}>\033[0m ").split();
-  if (not cmd_line):
-    continue;
-  elif (cmd_line[0] == "help"):
-    printff("runtime/preload/help.txt");
+  if (not cmd_line): continue;
+  elif (cmd_line[0] == "help"): printff("runtime/preload/help.txt");
   elif (cmd_line[0] == "syserr"):
     cli.cli(0x00000003);
     exit(1);
-  elif (cmd_line[0] == "lasfetch"):
-    lasfetch(settings["username"]);
-  elif (cmd_line[0] == "echo"):
-    print(" ".join(cmd_line[1:]));
-  elif (cmd_line[0] == "exit"):
-    exit();
-  elif (cmd_line[0] == "cls"):
-    print(end="\033[H\033[2J");
+  elif (cmd_line[0] == "lasfetch"): lasfetch(settings);
+  elif (cmd_line[0] == "echo"): print(" ".join(cmd_line[1:]));
+  elif (cmd_line[0] == "exit"): exit();
+  elif (cmd_line[0] == "cls"): print(end="\033[H\033[2J");
   elif (cmd_line[0] == "var"):
     if (len(cmd_line) < 3):
       print("var: syntax error");
       print("usage: var <varname> <value>");
     else:
       settings[cmd_line[1]] = " ".join(cmd_line[2:]);
-  elif (cmd_line[0] == "date"):
-    system(f"date +'{settings['date_format']}'");
+  elif (cmd_line[0] == "date"): system(f"date +'{settings['date_format']}'");
   elif (cmd_line[0] == "calc"):
     print(f"Calculator for LastOS {LASTO_VERSION}");
     while ((a := input("; ")) not in ["q", "quit", "exit"]):
       print(eval(a));
-  elif (cmd_line[0] == "linux"):
-    printff("runtime/preload/linux.txt");
+  elif (cmd_line[0] == "linux"): printff("runtime/preload/linux.txt");
   elif (cmd_line[0] == "hexcnv"):
     print("Hex Converter 0.2\nSelect the mode:\n1 = Numbers to Hex\n2 = Hex to Numbers");
     selectmode = input("Select mode: ");

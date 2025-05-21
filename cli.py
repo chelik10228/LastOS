@@ -13,28 +13,20 @@ errors = {
 };
 
 def cli(c: int):
-  print(f"\033[91mtrapped\033[0m at 0x{hex(c)[2:]:0>8}");
-  print(f"\033[91mError:\033[0m {errors[c]}");
+  print(f"Kernel panic 0,0x{hex(c)[2:]:0>8}: {errors[c]}");
+  print("Entering rescue mode...");
+  print("  type \"h\" for help");
   while (True):
-    com = input("! ");
-    if not com:
-      pass;
-    elif com == "h":
-      print("lastos cli help:");
-      print("  h      help");
-      print("  t      show trap codes");
-      print("  c      clear screen");
-      print("  r      run lastos");
-      print("  q      exit from cli");
-    elif com == "t":
+    com = input("lasto rescue> ");
+    if (not com): continueOB;
+    elif (com[0] == "h"): print("Lasto Rescue help:\n  h      Show help\n  e      Show error codes\n  c      Clear the screen\n  s      Shutdown");
+    elif (com[0] == "e"):
       for i in errors:
         print(f"  0x{hex(i)[2:]:0>8}\t{errors[i]}");
-    elif com == "c":
-      print("\033[H\033[2J", end="\r");
-    elif com == "r":
-      os.system("python boot_manager lastos.py");
-      exit();
-    elif com == "q":
+    elif (com[0] == "c"):
+      print(end="\033[H\033[2J");
+    elif (com[0] == "s"):
+      print(end="\033[H\033[2J");
       exit();
     else:
       print("Bad command.");
