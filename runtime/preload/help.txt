@@ -1,0 +1,27 @@
+\ESC[34m+--------------------------------------------+
+|\ESC[94mLastOS Command Help 1/1 Page\ESC[34m                |
+|\ESC[92m  calc          \ESC[93mOpen calculator\ESC[34m             |
+|\ESC[92m  cat           \ESC[93mOutput file contents\ESC[34m        |
+|\ESC[92m  cd            \ESC[93mChange directory\ESC[34m            |
+|\ESC[92m  changelog     \ESC[93mSee change log\ESC[34m              |
+|\ESC[92m  cls           \ESC[93mClear the screen\ESC[34m            |
+|\ESC[92m  date          \ESC[93mShow current date and time\ESC[34m  |
+|\ESC[92m  echo          \ESC[93mEcho text on screen\ESC[34m         |
+|\ESC[92m  exit          \ESC[93mShut down the OS\ESC[34m            |
+|\ESC[92m  help          \ESC[93mShow help\ESC[34m                   |
+|\ESC[92m  hexcnv        \ESC[93mConvert any number to HEX\ESC[34m   |
+|\ESC[92m  info          \ESC[93mLastOS release info\ESC[34m         |
+|\ESC[92m  lasfetch      \ESC[93mFetch system info\ESC[34m           |
+|\ESC[92m  lassettings   \ESC[93mEdit system settings\ESC[34m        |
+|\ESC[92m  latutor       \ESC[93mLastOS tutorial\ESC[34m             |
+|\ESC[92m  ls            \ESC[93mList files\ESC[34m                  |
+|\ESC[92m  music-list    \ESC[93mList music in L/Music/\ESC[34m      |
+|\ESC[92m  music-pause   \ESC[93mPause music\ESC[34m                 |
+|\ESC[92m  music-play    \ESC[93mPlay music\ESC[34m                  |
+|\ESC[92m  music-stop    \ESC[93mStop music\ESC[34m                  |
+|\ESC[92m  music-unpause \ESC[93mUnpause music\ESC[34m               |
+|\ESC[92m  octcnv        \ESC[93mConvert any number to OCT\ESC[34m   |
+|\ESC[92m  pwd           \ESC[93mShow current directory\ESC[34m      |
+|\ESC[92m  syserr        \ESC[93mSystem error test\ESC[34m           |
+|\ESC[92m  var           \ESC[93mChange system settings\ESC[34m      |
++--------------------------------------------+\ESC[0m
